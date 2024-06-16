@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = ["common", "job", "api"]
+
+[workspace.dependencies]
+axum = "0.7.5"
+chrono = { version = "0.4.38", features = ["serde"] }
+dotenvy = "0.15.7"
+futures-util = "0.3.30"
+headers = "0.4.0"
+lambda_http = "0.11.1"
+lambda_runtime = "0.11.2"
+octocrab = "0.38.0"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.117"
+tokio = { version = "1", features = ["macros"] }
+tower-http = { version = "0.5.2", features = ["cors"] }
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["env-filter", "fmt"] }
+aws-config = { version= "1.5.1", features = ["behavior-version-latest"] }
+aws-sdk-s3 = "1.34.0"
+once_cell = "1.19"
+tokei = "12.1.2"
