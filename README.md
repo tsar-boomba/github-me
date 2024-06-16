@@ -1,3 +1,3 @@
-# Spotify Me
+# GitHub Me
 
-An AWS lambda service for accessing one person's data, forever, using a refresh token. Used for accessing my spotify data from my portfolio website.
+An AWS lambda service for aggregating one person's GitHub data and putting it in an S3 bucket. Used for accessing my GitHub data from my portfolio website.
