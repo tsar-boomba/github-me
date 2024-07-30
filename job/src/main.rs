@@ -255,7 +255,7 @@ async fn run() -> Result<(), Error> {
 
     combine_ts_tsx(&mut total);
 
-    // Manual adjustment for code done for contract work
+    // Manual adjustment for code done for contract work/internship
     total
         .iter_mut()
         .find(|l| l.name == LanguageType::Rust)
@@ -267,6 +267,12 @@ async fn run() -> Result<(), Error> {
         .find(|l| l.name == LanguageType::TypeScript)
         .unwrap()
         .code += 4333;
+
+    total
+        .iter_mut()
+        .find(|l| l.name == LanguageType::Java)
+        .unwrap()
+        .code += 4517;
 
     // Sort so that the repo with the most code is at the top
     per_repo_stats.sort_unstable_by(|a, b| total_code(&b.languages).cmp(&total_code(&a.languages)));
