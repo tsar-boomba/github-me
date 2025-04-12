@@ -1,5 +1,4 @@
 use std::{
-    collections::BTreeMap,
     fs,
     ops::AddAssign,
     sync::{atomic::AtomicBool, Arc, Mutex},
@@ -266,13 +265,20 @@ async fn run() -> Result<(), Error> {
         .iter_mut()
         .find(|l| l.name == LanguageType::TypeScript)
         .unwrap()
-        .code += 4333;
+        .code += 10457;
 
     total
         .iter_mut()
         .find(|l| l.name == LanguageType::Java)
         .unwrap()
         .code += 4517;
+
+    if let Some(go) = total.iter_mut().find(|l| l.name == LanguageType::Go) {
+        go.code += 3924;
+    } else {
+        // won't bother with estimation of blanks and comments
+        total.push(SimpleLanguage { name: LanguageType::Go, code: 3924, blanks: 0, comments: 0 });
+    }
 
     // Sort so that the repo with the most code is at the top
     per_repo_stats.sort_unstable_by(|a, b| total_code(&b.languages).cmp(&total_code(&a.languages)));

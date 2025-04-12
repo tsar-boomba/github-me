@@ -34,7 +34,7 @@ async fn total() -> Result<Response, String> {
     };
 
     // 6hrs cache
-    let cache_header = CacheControl::new().with_max_age(Duration::from_secs(6 * 60 * 60));
+    let cache_header = CacheControl::new().with_max_age(Duration::from_secs(24 * 60 * 60));
     let mut res = Response::builder().body(Body::from(total)).unwrap();
     res.headers_mut().typed_insert(cache_header);
     Ok(res)
